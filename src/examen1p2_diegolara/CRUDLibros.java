@@ -58,7 +58,21 @@ public class CRUDLibros extends javax.swing.JFrame {
         jp_list = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tp_listar = new javax.swing.JTextPane();
         jp_edit = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cb_tipoEdit = new javax.swing.JComboBox<>();
+        cb_Libro = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tp_edit = new javax.swing.JTextPane();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        tf_modifTitle = new javax.swing.JTextField();
+        tf_modifAutor = new javax.swing.JTextField();
+        tf_modifPrecio = new javax.swing.JTextField();
         jp_modif = new javax.swing.JPanel();
         Login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -101,7 +115,7 @@ public class CRUDLibros extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tf_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addContainerGap(383, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibroTextoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jb_publishT)
@@ -146,7 +160,7 @@ public class CRUDLibros extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cb_tipoR, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
         LibroReferenciaLayout.setVerticalGroup(
             LibroReferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +189,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         LibroFiccionLayout.setHorizontalGroup(
             LibroFiccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibroFiccionLayout.createSequentialGroup()
-                .addContainerGap(645, Short.MAX_VALUE)
+                .addContainerGap(651, Short.MAX_VALUE)
                 .addComponent(jb_publishF)
                 .addContainerGap())
             .addGroup(LibroFiccionLayout.createSequentialGroup()
@@ -212,7 +226,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         LibroNoFiccionLayout.setHorizontalGroup(
             LibroNoFiccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LibroNoFiccionLayout.createSequentialGroup()
-                .addContainerGap(645, Short.MAX_VALUE)
+                .addContainerGap(651, Short.MAX_VALUE)
                 .addComponent(jb_publishNF)
                 .addContainerGap())
             .addGroup(LibroNoFiccionLayout.createSequentialGroup()
@@ -301,6 +315,14 @@ public class CRUDLibros extends javax.swing.JFrame {
         jLabel12.setText("Tipo:");
 
         jComboBox1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        tp_listar.setText("Titulo\nAutor:\nEdicion:\nPrecio:");
+        jScrollPane1.setViewportView(tp_listar);
 
         javax.swing.GroupLayout jp_listLayout = new javax.swing.GroupLayout(jp_list);
         jp_list.setLayout(jp_listLayout);
@@ -311,7 +333,8 @@ public class CRUDLibros extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         jp_listLayout.setVerticalGroup(
             jp_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,20 +343,92 @@ public class CRUDLibros extends javax.swing.JFrame {
                 .addGroup(jp_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(408, 408, 408))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Listar Libros", jp_list);
+
+        jLabel13.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel13.setText("Tipo:");
+
+        jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel14.setText("Libro:");
+
+        cb_Libro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_LibroActionPerformed(evt);
+            }
+        });
+
+        tp_edit.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:");
+        jScrollPane2.setViewportView(tp_edit);
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel15.setText("Titulo:");
+
+        jLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel16.setText("Autor:");
+
+        jLabel17.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel17.setText("Precio:");
 
         javax.swing.GroupLayout jp_editLayout = new javax.swing.GroupLayout(jp_edit);
         jp_edit.setLayout(jp_editLayout);
         jp_editLayout.setHorizontalGroup(
             jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 805, Short.MAX_VALUE)
+            .addGroup(jp_editLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jp_editLayout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cb_Libro, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_editLayout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_tipoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addGap(66, 66, 66)
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tf_modifTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_modifAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_modifPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jp_editLayout.setVerticalGroup(
             jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 473, Short.MAX_VALUE)
+            .addGroup(jp_editLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(cb_tipoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_Libro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                    .addGroup(jp_editLayout.createSequentialGroup()
+                        .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(tf_modifTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(tf_modifAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(tf_modifPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Editar Libro", jp_edit);
@@ -342,7 +437,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jp_modif.setLayout(jp_modifLayout);
         jp_modifLayout.setHorizontalGroup(
             jp_modifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 805, Short.MAX_VALUE)
+            .addGap(0, 811, Short.MAX_VALUE)
         );
         jp_modifLayout.setVerticalGroup(
             jp_modifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,6 +566,14 @@ public class CRUDLibros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_userActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void cb_LibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_LibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_LibroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -515,6 +618,8 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JPanel LibroTexto;
     private javax.swing.JPanel Login;
     private javax.swing.JTabbedPane TiposdeLibros;
+    private javax.swing.JComboBox<String> cb_Libro;
+    private javax.swing.JComboBox<String> cb_tipoEdit;
     private javax.swing.JComboBox<String> cb_tipoF;
     private javax.swing.JComboBox<String> cb_tipoNF;
     private javax.swing.JComboBox<String> cb_tipoR;
@@ -523,6 +628,11 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -532,6 +642,8 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_admin;
     private javax.swing.JButton jb_publishF;
@@ -547,7 +659,12 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JTextField tf_autor;
     private javax.swing.JTextField tf_curso;
     private javax.swing.JTextField tf_facu;
+    private javax.swing.JTextField tf_modifAutor;
+    private javax.swing.JTextField tf_modifPrecio;
+    private javax.swing.JTextField tf_modifTitle;
     private javax.swing.JTextField tf_precio;
     private javax.swing.JTextField tf_title;
+    private javax.swing.JTextPane tp_edit;
+    private javax.swing.JTextPane tp_listar;
     // End of variables declaration//GEN-END:variables
 }
