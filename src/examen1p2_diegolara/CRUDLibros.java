@@ -90,14 +90,14 @@ public class CRUDLibros extends javax.swing.JFrame {
         tp_Comprar = new javax.swing.JTextPane();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        tf_tipoC = new javax.swing.JTextField();
-        tf_libroC = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tp_comprar = new javax.swing.JTextPane();
         jb_comprarL = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jl_money = new javax.swing.JLabel();
+        cb_tipoC = new javax.swing.JComboBox<>();
+        cb_libroC = new javax.swing.JComboBox<>();
         jp_devolver = new javax.swing.JPanel();
         Login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -577,10 +577,10 @@ public class CRUDLibros extends javax.swing.JFrame {
                                 .addGroup(jp_buyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1)
-                                .addGroup(jp_buyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_tipoC, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_libroC, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jp_buyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cb_tipoC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cb_libroC, 0, 217, Short.MAX_VALUE)))
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 69, Short.MAX_VALUE))
@@ -599,15 +599,15 @@ public class CRUDLibros extends javax.swing.JFrame {
                 .addComponent(jScrollPane4)
                 .addContainerGap())
             .addGroup(jp_buyLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
                 .addGroup(jp_buyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(tf_tipoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(cb_tipoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(jp_buyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(tf_libroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(cb_libroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -837,7 +837,9 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TiposdeLibros;
     private javax.swing.JDialog User;
     private javax.swing.JComboBox<String> cb_Libro;
+    private javax.swing.JComboBox<String> cb_libroC;
     private javax.swing.JComboBox<String> cb_libroElim;
+    private javax.swing.JComboBox<String> cb_tipoC;
     private javax.swing.JComboBox<String> cb_tipoEdit;
     private javax.swing.JComboBox<String> cb_tipoElim;
     private javax.swing.JComboBox<String> cb_tipoF;
@@ -894,12 +896,10 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JTextField tf_autor;
     private javax.swing.JTextField tf_curso;
     private javax.swing.JTextField tf_facu;
-    private javax.swing.JTextField tf_libroC;
     private javax.swing.JTextField tf_modifAutor;
     private javax.swing.JTextField tf_modifPrecio;
     private javax.swing.JTextField tf_modifTitle;
     private javax.swing.JTextField tf_precio;
-    private javax.swing.JTextField tf_tipoC;
     private javax.swing.JTextField tf_title;
     private javax.swing.JTextPane tp_Comprar;
     private javax.swing.JTextPane tp_Elim;
