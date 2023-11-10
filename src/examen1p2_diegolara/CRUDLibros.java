@@ -4,6 +4,9 @@
  */
 package examen1p2_diegolara;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author diego
@@ -99,10 +102,20 @@ public class CRUDLibros extends javax.swing.JFrame {
         cb_tipoC = new javax.swing.JComboBox<>();
         cb_libroC = new javax.swing.JComboBox<>();
         jp_devolver = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tp_Devolver = new javax.swing.JTextPane();
+        cb_tipoD = new javax.swing.JComboBox<>();
+        cb_libroD = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tp_devolver = new javax.swing.JTextPane();
+        jLabel26 = new javax.swing.JLabel();
+        jb_devolverL = new javax.swing.JButton();
         Login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Admin = new javax.swing.JTextField();
+        tf_Admin = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         pf_pass = new javax.swing.JPasswordField();
         jb_admin = new javax.swing.JButton();
@@ -167,6 +180,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jb_publishR.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jb_publishR.setText("Publicar Libro");
 
+        cb_tipoR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diccionario ", "Enciclopedia", "Manual ", "Técnico", "Tesauro" }));
         cb_tipoR.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
@@ -204,6 +218,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jb_publishF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jb_publishF.setText("Publicar Libro");
 
+        cb_tipoF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Novela ", "SciFi", "Misterio", "Aventura" }));
         cb_tipoF.setToolTipText("");
 
         jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
@@ -241,6 +256,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jb_publishNF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jb_publishNF.setText("Publicar Libro");
 
+        cb_tipoNF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ensayo", "Biografía", "Autobiografía", "Revista ", "Científica", " " }));
         cb_tipoNF.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
@@ -543,8 +559,6 @@ public class CRUDLibros extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        User.setPreferredSize(new java.awt.Dimension(800, 500));
-
         tp_Comprar.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:");
         jScrollPane4.setViewportView(tp_Comprar);
 
@@ -625,15 +639,79 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         tp_user.addTab("Comprar Libros", jp_buy);
 
+        tp_Devolver.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:\n\nPrecio Pagado:\n");
+        jScrollPane6.setViewportView(tp_Devolver);
+
+        jLabel24.setText("Tipo:");
+
+        jLabel25.setText("Libro:");
+
+        tp_devolver.setText("Reembolso:\n");
+        jScrollPane7.setViewportView(tp_devolver);
+
+        jLabel26.setText("Transaccion");
+
+        jb_devolverL.setText("Devolver Libro");
+
         javax.swing.GroupLayout jp_devolverLayout = new javax.swing.GroupLayout(jp_devolver);
         jp_devolver.setLayout(jp_devolverLayout);
         jp_devolverLayout.setHorizontalGroup(
             jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 795, Short.MAX_VALUE)
+            .addGroup(jp_devolverLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_devolverLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_devolverLayout.createSequentialGroup()
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_tipoD, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_devolverLayout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_libroD, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(211, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_devolverLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_devolverL, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_devolverLayout.createSequentialGroup()
+                    .addGap(310, 310, 310)
+                    .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(58, Short.MAX_VALUE)))
         );
         jp_devolverLayout.setVerticalGroup(
             jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(jp_devolverLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(cb_tipoD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(cb_libroD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_devolverLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jp_devolverLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jb_devolverL))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jp_devolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_devolverLayout.createSequentialGroup()
+                    .addGap(144, 144, 144)
+                    .addComponent(jLabel26)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(43, Short.MAX_VALUE)))
         );
 
         tp_user.addTab("Devolver Libro", jp_devolver);
@@ -661,7 +739,6 @@ public class CRUDLibros extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         Login.setBackground(new java.awt.Color(204, 204, 204));
         Login.setPreferredSize(new java.awt.Dimension(806, 500));
@@ -675,7 +752,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("User Administrator");
 
-        Admin.setBackground(new java.awt.Color(255, 255, 255));
+        tf_Admin.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -722,9 +799,9 @@ public class CRUDLibros extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Admin)
+                                .addComponent(tf_Admin)
                                 .addComponent(pf_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)))))
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(426, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jb_user)
@@ -738,7 +815,7 @@ public class CRUDLibros extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -785,10 +862,15 @@ public class CRUDLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_libroElimActionPerformed
 
     private void jb_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminMouseClicked
-        this.setVisible(false);
-        Administrador.setVisible(true);
-        Administrador.pack();
-
+        if (tf_Admin.getText().equals("lib123") && pf_pass.getText().equals("321lib")) {
+            this.setVisible(false);
+            Administrador.pack();
+            Administrador.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingreso mal su usuario o contraseña");
+            tf_Admin.setText("");
+            pf_pass.setText("");
+        }
     }//GEN-LAST:event_jb_adminMouseClicked
 
     /**
@@ -825,9 +907,8 @@ public class CRUDLibros extends javax.swing.JFrame {
             }
         });
     }
-
+    ArrayList<Libros> lista = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Admin;
     private javax.swing.JDialog Administrador;
     private javax.swing.JPanel LibroFiccion;
     private javax.swing.JPanel LibroNoFiccion;
@@ -838,8 +919,10 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JDialog User;
     private javax.swing.JComboBox<String> cb_Libro;
     private javax.swing.JComboBox<String> cb_libroC;
+    private javax.swing.JComboBox<String> cb_libroD;
     private javax.swing.JComboBox<String> cb_libroElim;
     private javax.swing.JComboBox<String> cb_tipoC;
+    private javax.swing.JComboBox<String> cb_tipoD;
     private javax.swing.JComboBox<String> cb_tipoEdit;
     private javax.swing.JComboBox<String> cb_tipoElim;
     private javax.swing.JComboBox<String> cb_tipoF;
@@ -862,6 +945,9 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -877,9 +963,12 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JButton jb_admin;
     private javax.swing.JButton jb_cerrar;
     private javax.swing.JButton jb_comprarL;
+    private javax.swing.JButton jb_devolverL;
     private javax.swing.JButton jb_publishF;
     private javax.swing.JButton jb_publishNF;
     private javax.swing.JButton jb_publishR;
@@ -893,6 +982,7 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JPanel jp_modif;
     private javax.swing.JPanel jp_public;
     private javax.swing.JPasswordField pf_pass;
+    private javax.swing.JTextField tf_Admin;
     private javax.swing.JTextField tf_autor;
     private javax.swing.JTextField tf_curso;
     private javax.swing.JTextField tf_facu;
@@ -902,9 +992,11 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JTextField tf_precio;
     private javax.swing.JTextField tf_title;
     private javax.swing.JTextPane tp_Comprar;
+    private javax.swing.JTextPane tp_Devolver;
     private javax.swing.JTextPane tp_Elim;
     private javax.swing.JTabbedPane tp_admin;
     private javax.swing.JTextPane tp_comprar;
+    private javax.swing.JTextPane tp_devolver;
     private javax.swing.JTextPane tp_edit;
     private javax.swing.JTextPane tp_listar;
     private javax.swing.JTabbedPane tp_user;
