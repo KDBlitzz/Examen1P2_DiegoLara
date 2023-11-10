@@ -16,8 +16,8 @@ public class Referencia extends Libros {
         super();
     }
 
-    public Referencia(String tipo, String titulo, String autor, double precio, int edicion) {
-        super(titulo, autor, precio, edicion);
+    public Referencia(String tipo, String titulo, String autor, double precio) {
+        super(titulo, autor, precio);
         this.tipo = tipo;
     }
 

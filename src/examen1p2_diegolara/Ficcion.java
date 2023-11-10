@@ -16,7 +16,8 @@ public class Ficcion extends Libros {
         super();
     }
 
-    public Ficcion(String tipo) {
+    public Ficcion(String tipo, String titulo, String autor, double precio) {
+        super(titulo, autor, precio);
         this.tipo = tipo;
     }
 

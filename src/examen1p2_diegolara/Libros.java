@@ -16,11 +16,10 @@ public class Libros {
     public Libros() {
     }
 
-    public Libros(String titulo, String autor, double precio, int edicion) {
+    public Libros(String titulo, String autor, double precio) {
         this.titulo = titulo;
         this.autor = autor;
         this.precio = precio;
-        this.edicion = edicion;
     }
 
     public String getTitulo() {

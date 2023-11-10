@@ -16,8 +16,8 @@ public class Texto extends Libros {
         super();
     }
 
-    public Texto(String curso, String facultad, String titulo, String autor, double precio, int edicion) {
-        super(titulo, autor, precio, edicion);
+    public Texto(String curso, String facultad, String titulo, String autor, double precio) {
+        super(titulo, autor, precio);
         this.curso = curso;
         this.facultad = facultad;
     }
