@@ -330,6 +330,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Publicar Libro"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_publishFMouseClicked"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="cb_tipoF">
                               <Properties>
@@ -406,6 +409,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Publicar Libro"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_publishNFMouseClicked"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="cb_tipoNF">
                               <Properties>
@@ -699,9 +705,6 @@
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
                         <Component class="javax.swing.JTextPane" name="tp_edit">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Titulo:&#xa;&#xa;Autor:&#xa;&#xa;Tipo:&#xa;&#xa;Edicion:&#xa;&#xa;Precio:"/>
-                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -804,6 +807,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_tipoElimActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -891,6 +897,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="User">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[800, 500]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

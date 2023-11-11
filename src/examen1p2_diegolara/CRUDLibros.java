@@ -227,6 +227,11 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         jb_publishF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jb_publishF.setText("Publicar Libro");
+        jb_publishF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_publishFMouseClicked(evt);
+            }
+        });
 
         cb_tipoF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Novela ", "SciFi", "Misterio", "Aventura" }));
         cb_tipoF.setToolTipText("");
@@ -265,6 +270,11 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         jb_publishNF.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jb_publishNF.setText("Publicar Libro");
+        jb_publishNF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_publishNFMouseClicked(evt);
+            }
+        });
 
         cb_tipoNF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ensayo", "Biografía", "Autobiografía", "Revista ", "Científica", " " }));
         cb_tipoNF.setToolTipText("");
@@ -411,7 +421,6 @@ public class CRUDLibros extends javax.swing.JFrame {
             }
         });
 
-        tp_edit.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:");
         jScrollPane2.setViewportView(tp_edit);
 
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -484,6 +493,11 @@ public class CRUDLibros extends javax.swing.JFrame {
         tp_admin.addTab("Editar Libro", jp_edit);
 
         cb_tipoElim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libro de Texto", "Libro de Referencias", "Libro de Ficcion", "Libro de no Ficcion" }));
+        cb_tipoElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoElimActionPerformed(evt);
+            }
+        });
 
         cb_libroElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -569,6 +583,8 @@ public class CRUDLibros extends javax.swing.JFrame {
             AdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        User.setPreferredSize(new java.awt.Dimension(800, 500));
 
         tp_Comprar.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:");
         jScrollPane4.setViewportView(tp_Comprar);
@@ -861,7 +877,35 @@ public class CRUDLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_userActionPerformed
 
     private void cb_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_listarActionPerformed
-        // TODO add your handling code here:
+        if (cb_listar.getSelectedItem().equals("Todos")) {
+            for (Libros libros : lista) {
+                tp_listar.setText(libros.toString());
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de Texto")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Texto) {
+                    tp_listar.setText(libros.toString());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de Referencias")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Referencia) {
+                    tp_listar.setText(libros.toString());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Ficcion) {
+                    tp_listar.setText(libros.toString());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de no Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof NoFiccion) {
+                    tp_listar.setText(libros.toString());
+                }
+            }
+        }
     }//GEN-LAST:event_cb_listarActionPerformed
 
     private void cb_LibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_LibroActionPerformed
@@ -887,12 +931,52 @@ public class CRUDLibros extends javax.swing.JFrame {
     private void jb_publishTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishTMouseClicked
         Libros libro = new Texto(tf_curso.getText(), tf_facu.getText(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
         lista.add(libro);
-        
+
     }//GEN-LAST:event_jb_publishTMouseClicked
 
     private void jb_publishRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishRMouseClicked
-        Libros libro = new Referencia(cb_tipoR.getName(),tf_title.getText(), tf_autor.getText(),Double.parseDouble(tf_precio.getText()));
+        Libros libro = new Referencia(cb_tipoR.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
+        lista.add(libro);
     }//GEN-LAST:event_jb_publishRMouseClicked
+
+    private void jb_publishFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishFMouseClicked
+        Libros libro = new Ficcion(cb_tipoF.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
+        lista.add(libro);
+    }//GEN-LAST:event_jb_publishFMouseClicked
+
+    private void jb_publishNFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishNFMouseClicked
+        Libros libro = new NoFiccion(cb_tipoNF.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
+        lista.add(libro);
+    }//GEN-LAST:event_jb_publishNFMouseClicked
+
+    private void cb_tipoElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoElimActionPerformed
+
+        if (cb_listar.getSelectedItem().equals("Libro de Texto")) {
+            for (Libros l : lista) {
+                if (l instanceof Texto) {
+                    cb_libroElim.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de Referencias")) {
+            for (Libros l : lista) {
+                if (l instanceof Referencia) {
+                    cb_libroElim.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de Ficcion")) {
+            for (Libros l : lista) {
+                if (l instanceof Ficcion) {
+                    cb_libroElim.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_listar.getSelectedItem().equals("Libro de no Ficcion")) {
+            for (Libros l : lista) {
+                if (l instanceof NoFiccion) {
+                    cb_libroElim.addItem(l.getTitulo());
+                }
+            }
+        }
+    }//GEN-LAST:event_cb_tipoElimActionPerformed
 
     /**
      * @param args the command line arguments
