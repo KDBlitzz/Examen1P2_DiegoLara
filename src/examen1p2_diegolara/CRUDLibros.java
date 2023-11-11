@@ -5,6 +5,7 @@
 package examen1p2_diegolara;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -877,34 +878,42 @@ public class CRUDLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_userActionPerformed
 
     private void cb_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_listarActionPerformed
+        String tempR = "";
+        String tempT = "";
+        String tempF = "";
+        String tempNF = "";
         if (cb_listar.getSelectedItem().equals("Todos")) {
-            for (Libros libros : lista) {
-                tp_listar.setText(libros.toString());
-            }
+
+            tp_listar.setText(lista.toString());
+
         } else if (cb_listar.getSelectedItem().equals("Libro de Texto")) {
             for (Libros libros : lista) {
                 if (libros instanceof Texto) {
-                    tp_listar.setText(libros.toString());
+                    tempT = libros.toString();
                 }
             }
+            tp_listar.setText(tempT);
         } else if (cb_listar.getSelectedItem().equals("Libro de Referencias")) {
             for (Libros libros : lista) {
                 if (libros instanceof Referencia) {
-                    tp_listar.setText(libros.toString());
+                    tempR += libros.toString();
                 }
             }
+            tp_listar.setText(tempR);
         } else if (cb_listar.getSelectedItem().equals("Libro de Ficcion")) {
             for (Libros libros : lista) {
                 if (libros instanceof Ficcion) {
-                    tp_listar.setText(libros.toString());
+                    tempF += libros.toString();
                 }
             }
+            tp_listar.setText(tempF);
         } else if (cb_listar.getSelectedItem().equals("Libro de no Ficcion")) {
             for (Libros libros : lista) {
                 if (libros instanceof NoFiccion) {
-                    tp_listar.setText(libros.toString());
+                    tempNF += libros.toString();
                 }
             }
+            tp_listar.setText(tempNF);
         }
     }//GEN-LAST:event_cb_listarActionPerformed
 
@@ -951,25 +960,33 @@ public class CRUDLibros extends javax.swing.JFrame {
 
     private void cb_tipoElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoElimActionPerformed
 
-        if (cb_listar.getSelectedItem().equals("Libro de Texto")) {
+        if (cb_tipoElim.getSelectedItem().equals("Libro de Texto")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroElim.setModel(modelo);
             for (Libros l : lista) {
                 if (l instanceof Texto) {
                     cb_libroElim.addItem(l.getTitulo());
                 }
             }
-        } else if (cb_listar.getSelectedItem().equals("Libro de Referencias")) {
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de Referencias")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroElim.setModel(modelo);
             for (Libros l : lista) {
                 if (l instanceof Referencia) {
                     cb_libroElim.addItem(l.getTitulo());
                 }
             }
-        } else if (cb_listar.getSelectedItem().equals("Libro de Ficcion")) {
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroElim.setModel(modelo);
             for (Libros l : lista) {
                 if (l instanceof Ficcion) {
                     cb_libroElim.addItem(l.getTitulo());
                 }
             }
-        } else if (cb_listar.getSelectedItem().equals("Libro de no Ficcion")) {
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de no Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroElim.setModel(modelo);
             for (Libros l : lista) {
                 if (l instanceof NoFiccion) {
                     cb_libroElim.addItem(l.getTitulo());
