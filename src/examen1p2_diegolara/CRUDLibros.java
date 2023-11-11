@@ -96,7 +96,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tp_comprar = new javax.swing.JTextPane();
+        tp_transaccion = new javax.swing.JTextPane();
         jb_comprarL = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jl_money = new javax.swing.JLabel();
@@ -113,6 +113,8 @@ public class CRUDLibros extends javax.swing.JFrame {
         tp_devolver = new javax.swing.JTextPane();
         jLabel26 = new javax.swing.JLabel();
         jb_devolverL = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jb_salir = new javax.swing.JButton();
         Login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -552,6 +554,11 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         jb_cerrar.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jb_cerrar.setText("CERRAR SESION");
+        jb_cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_cerrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -587,7 +594,6 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         User.setPreferredSize(new java.awt.Dimension(800, 500));
 
-        tp_Comprar.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:");
         jScrollPane4.setViewportView(tp_Comprar);
 
         jLabel20.setText("Tipo:");
@@ -596,14 +602,26 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         jLabel22.setText("Transaccion");
 
-        tp_comprar.setText("Subtotal:\n\nISV 15%:\n\nTotal a Pagar:");
-        jScrollPane5.setViewportView(tp_comprar);
+        tp_transaccion.setText("Subtotal:\n\nISV 15%:\n\nTotal a Pagar:");
+        jScrollPane5.setViewportView(tp_transaccion);
 
         jb_comprarL.setText("Comprar Libro");
 
         jLabel23.setText("Saldo del Usuario:");
 
         jl_money.setText("9999");
+
+        cb_tipoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoCActionPerformed(evt);
+            }
+        });
+
+        cb_libroC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_libroCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_buyLayout = new javax.swing.GroupLayout(jp_buy);
         jp_buy.setLayout(jp_buyLayout);
@@ -667,8 +685,19 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         tp_user.addTab("Comprar Libros", jp_buy);
 
-        tp_Devolver.setText("Titulo:\n\nAutor:\n\nTipo:\n\nEdicion:\n\nPrecio:\n\nPrecio Pagado:\n");
         jScrollPane6.setViewportView(tp_Devolver);
+
+        cb_tipoD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tipoDActionPerformed(evt);
+            }
+        });
+
+        cb_libroD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_libroDActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("Tipo:");
 
@@ -744,6 +773,33 @@ public class CRUDLibros extends javax.swing.JFrame {
 
         tp_user.addTab("Devolver Libro", jp_devolver);
 
+        jb_salir.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jb_salir.setText("Salir");
+        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+
+        tp_user.addTab("Salir", jPanel4);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -803,6 +859,11 @@ public class CRUDLibros extends javax.swing.JFrame {
         });
 
         jb_user.setText("Entrar como Usuario");
+        jb_user.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_userMouseClicked(evt);
+            }
+        });
         jb_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_userActionPerformed(evt);
@@ -874,7 +935,7 @@ public class CRUDLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_adminActionPerformed
 
     private void jb_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_userActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jb_userActionPerformed
 
     private void cb_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_listarActionPerformed
@@ -889,7 +950,7 @@ public class CRUDLibros extends javax.swing.JFrame {
         } else if (cb_listar.getSelectedItem().equals("Libro de Texto")) {
             for (Libros libros : lista) {
                 if (libros instanceof Texto) {
-                    tempT = libros.toString();
+                    tempT += libros.toString();
                 }
             }
             tp_listar.setText(tempT);
@@ -922,7 +983,45 @@ public class CRUDLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_LibroActionPerformed
 
     private void cb_libroElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_libroElimActionPerformed
-        // TODO add your handling code here:
+        String tempR = "";
+        String tempT = "";
+        String tempF = "";
+        String tempNF = "";
+        if (cb_tipoElim.getSelectedItem().equals("Libro de Texto")) {
+            for (Libros l : lista) {
+                if (l instanceof Texto) {
+                    tempT += l.toString();
+                }
+            }
+            tp_Elim.setText(tempT);
+
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de Referencias")) {
+            for (Libros l : lista) {
+                if (l instanceof Referencia) {
+                    tempR += l.toString();
+                }
+            }
+            tp_Elim.setText(tempR);
+
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de Ficcion")) {
+            for (Libros l : lista) {
+                if (l instanceof Ficcion) {
+                    tempF += l.toString();
+                }
+            }
+            tp_Elim.setText(tempF);
+
+        } else if (cb_tipoElim.getSelectedItem().equals("Libro de no Ficcion")) {
+            for (Libros l : lista) {
+                if (l instanceof NoFiccion) {
+                    tempNF += l.toString();
+                }
+            }
+            tp_Elim.setText(tempNF);
+
+        }
+        lista.remove(cb_libroElim.getSelectedIndex());
+
     }//GEN-LAST:event_cb_libroElimActionPerformed
 
     private void jb_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_adminMouseClicked
@@ -940,22 +1039,35 @@ public class CRUDLibros extends javax.swing.JFrame {
     private void jb_publishTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishTMouseClicked
         Libros libro = new Texto(tf_curso.getText(), tf_facu.getText(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
         lista.add(libro);
-
+        tf_curso.setText("");
+        tf_facu.setText("");
+        tf_title.setText("");
+        tf_autor.setText("");
+        tf_precio.setText("");
     }//GEN-LAST:event_jb_publishTMouseClicked
 
     private void jb_publishRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishRMouseClicked
         Libros libro = new Referencia(cb_tipoR.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
         lista.add(libro);
+        tf_title.setText("");
+        tf_autor.setText("");
+        tf_precio.setText("");
     }//GEN-LAST:event_jb_publishRMouseClicked
 
     private void jb_publishFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishFMouseClicked
         Libros libro = new Ficcion(cb_tipoF.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
         lista.add(libro);
+        tf_title.setText("");
+        tf_autor.setText("");
+        tf_precio.setText("");
     }//GEN-LAST:event_jb_publishFMouseClicked
 
     private void jb_publishNFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_publishNFMouseClicked
         Libros libro = new NoFiccion(cb_tipoNF.getSelectedItem().toString(), tf_title.getText(), tf_autor.getText(), Double.parseDouble(tf_precio.getText()));
         lista.add(libro);
+        tf_title.setText("");
+        tf_autor.setText("");
+        tf_precio.setText("");
     }//GEN-LAST:event_jb_publishNFMouseClicked
 
     private void cb_tipoElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoElimActionPerformed
@@ -994,6 +1106,172 @@ public class CRUDLibros extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cb_tipoElimActionPerformed
+
+    private void jb_cerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cerrarMouseClicked
+        Administrador.setVisible(false);
+        this.setVisible(true);
+        tf_Admin.setText("");
+        pf_pass.setText("");
+    }//GEN-LAST:event_jb_cerrarMouseClicked
+
+    private void jb_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_userMouseClicked
+        this.setVisible(false);
+        User.pack();
+        User.setVisible(true);
+    }//GEN-LAST:event_jb_userMouseClicked
+
+    private void cb_tipoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoCActionPerformed
+
+        if (cb_tipoC.getSelectedItem().equals("Libro de Texto")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroC.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof Texto) {
+                    cb_libroC.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de Referencias")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroC.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof Referencia) {
+                    cb_libroC.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroC.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof Ficcion) {
+                    cb_libroC.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de no Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroC.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof NoFiccion) {
+                    cb_libroC.addItem(l.getTitulo());
+                }
+            }
+        }
+    }//GEN-LAST:event_cb_tipoCActionPerformed
+
+    private void cb_libroCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_libroCActionPerformed
+        String tempR = "";
+        String tempT = "";
+        String tempF = "";
+        String tempNF = "";
+        if (cb_tipoC.getSelectedItem().equals("Libro de Texto")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Texto) {
+                    tempT += libros.toString();
+                }
+            }
+            tp_Comprar.setText(tempT);
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de Referencias")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Referencia) {
+                    tempR += libros.toString();
+                }
+            }
+            tp_Comprar.setText(tempR);
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Ficcion) {
+                    tempF += libros.toString();
+                }
+            }
+            tp_Comprar.setText(tempF);
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de no Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof NoFiccion) {
+                    tempNF += libros.toString();
+                }
+            }
+            tp_Comprar.setText(tempNF);
+        }
+    }//GEN-LAST:event_cb_libroCActionPerformed
+
+    private void cb_tipoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tipoDActionPerformed
+
+        if (cb_tipoD.getSelectedItem().equals("Libro de Texto")) {
+            DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
+            cb_libroD.setModel(modelo1);
+            for (Libros l : lista) {
+                if (l instanceof Texto) {
+                    cb_libroD.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoD.getSelectedItem().equals("Libro de Referencias")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroD.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof Referencia) {
+                    cb_libroD.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoC.getSelectedItem().equals("Libro de Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroD.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof Ficcion) {
+                    cb_libroD.addItem(l.getTitulo());
+                }
+            }
+        } else if (cb_tipoD.getSelectedItem().equals("Libro de no Ficcion")) {
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            cb_libroD.setModel(modelo);
+            for (Libros l : lista) {
+                if (l instanceof NoFiccion) {
+                    cb_libroD.addItem(l.getTitulo());
+                }
+            }
+        }
+    }//GEN-LAST:event_cb_tipoDActionPerformed
+
+    private void cb_libroDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_libroDActionPerformed
+        String tempR = "";
+        String tempT = "";
+        String tempF = "";
+        String tempNF = "";
+        if (cb_tipoD.getSelectedItem().equals("Libro de Texto")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Texto) {
+                    tempT += libros.toString();
+                }
+            }
+            tp_Devolver.setText(tempT);
+        } else if (cb_tipoD.getSelectedItem().equals("Libro de Referencias")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Referencia) {
+                    tempR += libros.toString();
+                }
+            }
+            tp_Devolver.setText(tempR);
+        } else if (cb_tipoD.getSelectedItem().equals("Libro de Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof Ficcion) {
+                    tempF += libros.toString();
+                }
+            }
+            tp_Devolver.setText(tempF);
+        } else if (cb_tipoD.getSelectedItem().equals("Libro de no Ficcion")) {
+            for (Libros libros : lista) {
+                if (libros instanceof NoFiccion) {
+                    tempNF += libros.toString();
+                }
+            }
+            tp_Devolver.setText(tempNF);
+        }
+    }//GEN-LAST:event_cb_libroDActionPerformed
+
+    private void jb_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMouseClicked
+        User.setVisible(false);
+        this.setVisible(true);
+        tf_Admin.setText("");
+        pf_pass.setText("");
+    }//GEN-LAST:event_jb_salirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1080,6 +1358,7 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1095,6 +1374,7 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JButton jb_publishNF;
     private javax.swing.JButton jb_publishR;
     private javax.swing.JButton jb_publishT;
+    private javax.swing.JButton jb_salir;
     private javax.swing.JButton jb_user;
     private javax.swing.JLabel jl_money;
     private javax.swing.JPanel jp_buy;
@@ -1117,10 +1397,10 @@ public class CRUDLibros extends javax.swing.JFrame {
     private javax.swing.JTextPane tp_Devolver;
     private javax.swing.JTextPane tp_Elim;
     private javax.swing.JTabbedPane tp_admin;
-    private javax.swing.JTextPane tp_comprar;
     private javax.swing.JTextPane tp_devolver;
     private javax.swing.JTextPane tp_edit;
     private javax.swing.JTextPane tp_listar;
+    private javax.swing.JTextPane tp_transaccion;
     private javax.swing.JTabbedPane tp_user;
     // End of variables declaration//GEN-END:variables
 }

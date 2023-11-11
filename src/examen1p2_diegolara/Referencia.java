@@ -31,7 +31,7 @@ public class Referencia extends Libros {
 
     @Override
     public String toString() {
-        return "Referencia{" + "tipo=" + tipo + '}';
+        return super.toString() + "\nTipo: " + tipo;
     }
 
 }

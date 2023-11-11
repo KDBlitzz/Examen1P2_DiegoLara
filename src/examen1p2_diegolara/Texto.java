@@ -40,8 +40,7 @@ public class Texto extends Libros {
 
     @Override
     public String toString() {
-        return "Texto{" + "curso=" + curso + ", facultad=" + facultad + '}';
+        return super.toString() + "\nCurso: " + curso + "\nFacultad: " + facultad;
     }
-    
 
 }

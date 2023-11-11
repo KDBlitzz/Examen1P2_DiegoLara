@@ -31,7 +31,7 @@ public class Ficcion extends Libros {
 
     @Override
     public String toString() {
-        return "Ficcion{" + "tipo=" + tipo + '}';
+        return super.toString() + "\nTipo: " + tipo;
     }
 
 }
